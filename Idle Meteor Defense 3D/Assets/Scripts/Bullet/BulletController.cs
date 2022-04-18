@@ -7,9 +7,28 @@ public class BulletController : MonoBehaviour
 
     [HideInInspector] public float damage;
 
+    private Vector3 dir;
+
+    private void Start()
+    {
+        GetDirection();
+    }
+
     private void Update()
     {
-        Move();
+        if (target == null)
+            MoveInDirection();
+        else
+            Move();
+    }
+
+    private void MoveInDirection()
+    {
+        var step = speed * Time.deltaTime;
+        transform.position += dir * step;
+
+        if (Vector3.Distance(transform.position, Vector3.zero) > 50)
+            Destroy(gameObject);
     }
 
     private void Move()
@@ -18,6 +37,12 @@ public class BulletController : MonoBehaviour
 
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+    }
+
+    private void GetDirection()
+    {
+        dir = target.position - transform.position;
+        dir = dir.normalized;
     }
 
     private void OnCollisionEnter(Collision collision)
