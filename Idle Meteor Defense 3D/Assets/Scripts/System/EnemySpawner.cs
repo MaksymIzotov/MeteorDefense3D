@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     [SerializeField] private GameObject[] enemies;
 
     [SerializeField] private float delayMin;
@@ -9,14 +15,14 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private float radius;
 
-    private void Start()
-    {
-        StartWave();
-    }
-
     public void StartWave()
     {
         Timer.Instance.StartTimer(delayMin, delayMax, true, Spawn);
+    }
+
+    public void StopWave()
+    {
+        Timer.Instance.StopAllCoroutines();
     }
 
     private void Spawn()

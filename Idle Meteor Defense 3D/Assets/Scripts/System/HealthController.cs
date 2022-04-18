@@ -14,7 +14,6 @@ public class HealthController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health = health - damage;
-        Debug.Log(health);
 
         if (health <= 0)
             Die();
@@ -22,7 +21,10 @@ public class HealthController : MonoBehaviour
 
     public void Die()
     {
-        //TODO: Death menu, pause game
+        if (gameObject.tag == "Player")
+        {
+            //TODO: Death menu, pause game
+        }
 
         //TODO: death effects (Maybe time slowdown)
         Destroy(gameObject);
