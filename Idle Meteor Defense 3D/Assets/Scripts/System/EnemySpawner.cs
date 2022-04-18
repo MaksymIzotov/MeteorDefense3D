@@ -22,8 +22,6 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
         GameObject enemy = Instantiate(enemies[0], GetRandomPosition(), Quaternion.identity);
-
-        Debug.Log(Vector3.Distance(enemy.transform.position, transform.position));
     }
 
     private Vector3 GetRandomPosition()
