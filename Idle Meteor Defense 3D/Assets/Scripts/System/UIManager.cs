@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text waveText;
 
+
     public void WaveUpdate(int wave)
     {
         waveText.text = "Wave: " + wave;

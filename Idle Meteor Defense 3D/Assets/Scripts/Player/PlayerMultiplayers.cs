@@ -16,6 +16,9 @@ public class PlayerMultiplayers : MonoBehaviour
     private void Start()
     {
         SetDefaults();
+
+        UIManager.Instance.DamageUpdate();
+        UIManager.Instance.SpeedUpdate();
     }
 
     private void SetDefaults()
