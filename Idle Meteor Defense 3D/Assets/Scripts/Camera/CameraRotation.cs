@@ -43,8 +43,6 @@ public class CameraRotation : MonoBehaviour
         rotateMethod = RotateMethod.Touch;
 #endif
 
-        rotateMethod = RotateMethod.Touch;
-
         distanceBetweenCameraAndTarget = Vector3.Distance(mainCamera.transform.position, transform.position);
     }
 

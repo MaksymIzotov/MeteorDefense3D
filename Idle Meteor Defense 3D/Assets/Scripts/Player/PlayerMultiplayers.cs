@@ -21,7 +21,7 @@ public class PlayerMultiplayers : MonoBehaviour
     private void SetDefaults()
     {
         damageMult = 1;
-        attackSpd = 1;
+        attackSpd = 1f;
         hpMult = 1;
         hpRegen = 0.1f;
     }
