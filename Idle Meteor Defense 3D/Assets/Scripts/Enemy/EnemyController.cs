@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player") { return; }
 
-        collision.gameObject.GetComponent<HealthController>().TakeDamage(info.damage);
+        collision.gameObject.GetComponent<HealthController>().TakeDamage(info.damage * GameDifficultyManager.Instance.enemyDamageMult);
 
         Destroy(gameObject);
     }

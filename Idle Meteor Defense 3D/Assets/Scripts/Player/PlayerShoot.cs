@@ -33,7 +33,7 @@ public class PlayerShoot : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
 
         BulletController controller = bullet.GetComponent<BulletController>();
-        controller.damage = info.damage;
+        controller.damage = info.damage * PlayerMultiplayers.Instance.damageMult;
         controller.target = target;
 
         StartCoroutine(Reload());
@@ -61,8 +61,7 @@ public class PlayerShoot : MonoBehaviour
 
     IEnumerator Reload()
     {
-        //TODO: maybe change attack speed to shoots per second
-        yield return new WaitForSeconds(info.attackSpeed);
+        yield return new WaitForSeconds(1 / info.attackSpeed * PlayerMultiplayers.Instance.attackSpd);
 
         isReadyToShoot = true;
     }

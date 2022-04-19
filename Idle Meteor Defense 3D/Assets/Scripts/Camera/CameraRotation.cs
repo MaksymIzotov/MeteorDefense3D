@@ -43,6 +43,8 @@ public class CameraRotation : MonoBehaviour
         rotateMethod = RotateMethod.Touch;
 #endif
 
+        rotateMethod = RotateMethod.Touch;
+
         distanceBetweenCameraAndTarget = Vector3.Distance(mainCamera.transform.position, transform.position);
     }
 
@@ -85,6 +87,7 @@ public class CameraRotation : MonoBehaviour
             if (Input.touchCount > 0)
             {
                 touch = Input.GetTouch(0);
+                if (touch.position.y < 260f) { return; }
 
                 if (touch.phase == TouchPhase.Moved)
                     swipeDirection -= touch.deltaPosition * Time.deltaTime * touchRotateSpeed;

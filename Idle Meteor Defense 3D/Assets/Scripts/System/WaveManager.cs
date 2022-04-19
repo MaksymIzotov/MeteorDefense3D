@@ -30,7 +30,7 @@ public class WaveManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waveStartDelay);
 
-        //TODO: Increase difficulty
+        GameDifficultyManager.Instance.IncreaseDifficulty();
 
         StartCoroutine(WaveStart());
     }

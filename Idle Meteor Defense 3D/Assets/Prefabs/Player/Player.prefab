@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 7861683275335482082}
   - component: {fileID: 7861683275335482141}
   - component: {fileID: 7032413997370648868}
-  m_Layer: 0
+  - component: {fileID: 667044607}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -109,3 +110,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+--- !u!114 &667044607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861683275335482140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1752407bf2a74c8b043acdaa6df85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  info: {fileID: 11400000, guid: ad075b81291ba4649be71c11ad97b698, type: 2}
+  bulletPrefab: {fileID: 2875300270762229783, guid: ca92d235549b4a84b89fc4d2bbba107e, type: 3}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256

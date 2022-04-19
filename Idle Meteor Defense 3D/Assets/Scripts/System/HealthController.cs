@@ -32,6 +32,9 @@ public class HealthController : MonoBehaviour
 
     public void SetData()
     {
-        health = maxHealth;
+        if (gameObject.tag == "Player")
+            health = maxHealth * PlayerMultiplayers.Instance.hpMult;
+        else
+            health = maxHealth * GameDifficultyManager.Instance.enemyHPMult;
     }
 }
