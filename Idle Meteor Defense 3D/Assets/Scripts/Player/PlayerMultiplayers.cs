@@ -13,6 +13,12 @@ public class PlayerMultiplayers : MonoBehaviour
     [HideInInspector] public float hpMult;
     [HideInInspector] public float hpRegen;
 
+    [HideInInspector] public float p_damageMult;
+    [HideInInspector] public float p_attackSpd;
+    [HideInInspector] public float p_hpMult;
+    [HideInInspector] public float p_hpRegen;
+
+
     private void Start()
     {
         SetDefaults();
@@ -27,10 +33,51 @@ public class PlayerMultiplayers : MonoBehaviour
         attackSpd = 1f;
         hpMult = 1;
         hpRegen = 0.1f;
+
+
+        p_damageMult = 5;
+        p_attackSpd = 10;
+        p_hpMult = 10;
+        p_hpRegen = 5;
     }
 
-    public void DamageUpgrade() => damageMult += damageMult * 0.2f;
-    public void AttackSpeedUpgrade() => attackSpd += attackSpd * 0.05f;
-    public void HpMultUpgrade() => hpMult += hpMult * 0.1f;
-    public void HpRegenUpgrade() => hpRegen += hpRegen * 0.2f;
+    public void DamageUpgrade()
+    {
+        if (MoneyManager.Instance.money < p_damageMult) { return; }
+
+        MoneyManager.Instance.ChangeMoney(p_damageMult);
+
+        damageMult += damageMult * 0.2f;
+        p_damageMult += p_damageMult * 0.3f;
+    }
+
+    public void AttackSpeedUpgrade()
+    {
+        if (MoneyManager.Instance.money < p_attackSpd) { return; }
+
+        MoneyManager.Instance.ChangeMoney(p_attackSpd);
+
+        attackSpd += attackSpd * 0.05f;
+        p_attackSpd += p_attackSpd * 0.3f;
+    }
+
+    public void HpMultUpgrade()
+    {
+        if (MoneyManager.Instance.money < p_hpMult) { return; }
+
+        MoneyManager.Instance.ChangeMoney(p_hpMult);
+
+        hpMult += hpMult * 0.1f;
+        p_hpMult += p_hpMult * 0.3f;
+    }
+
+    public void HpRegenUpgrade()
+    {
+        if (MoneyManager.Instance.money < p_hpRegen) { return; }
+
+        MoneyManager.Instance.ChangeMoney(p_hpRegen);
+
+        hpRegen += hpRegen * 0.2f;
+        p_hpRegen += p_hpRegen * 0.3f;
+    }
 }

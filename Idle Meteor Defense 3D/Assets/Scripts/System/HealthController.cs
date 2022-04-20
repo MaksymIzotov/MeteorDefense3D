@@ -25,6 +25,10 @@ public class HealthController : MonoBehaviour
         {
             //TODO: Death menu, pause game
         }
+        else
+        {
+            MoneyManager.Instance.ChangeMoney(-GetComponent<EnemyController>().info.price);
+        }
 
         //TODO: death effects (Maybe time slowdown)
         Destroy(gameObject);

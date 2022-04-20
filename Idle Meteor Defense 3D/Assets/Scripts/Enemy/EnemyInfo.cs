@@ -5,4 +5,6 @@ public class EnemyInfo : ScriptableObject
 {
     public float speed;
     public float damage;
+
+    public float price;
 }
