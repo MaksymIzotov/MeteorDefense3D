@@ -13,6 +13,8 @@ public class WaveManager : MonoBehaviour
     private STATE waveState;
     private int waveCounter;
 
+    private float moneyPerWave = 1;
+
     [SerializeField] private Image timerBar; 
     private float timer = 0;
     private float fillAmount = 0;
@@ -65,6 +67,8 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(waveStartDelay);
 
         GameDifficultyManager.Instance.IncreaseDifficulty();
+
+        MoneyManager.Instance.ChangeMoney(-(moneyPerWave * PlayerMultiplayers.Instance.waveMoney));
 
         waveCounter++;
         UIManager.Instance.WaveUpdate(waveCounter);

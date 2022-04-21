@@ -12,11 +12,15 @@ public class PlayerMultiplayers : MonoBehaviour
     [HideInInspector] public float attackSpd;
     [HideInInspector] public float hpMult;
     [HideInInspector] public float hpRegen;
+    [HideInInspector] public float waveMoney;
+    [HideInInspector] public float killMoney;
 
     [HideInInspector] public float p_damageMult;
     [HideInInspector] public float p_attackSpd;
     [HideInInspector] public float p_hpMult;
     [HideInInspector] public float p_hpRegen;
+    [HideInInspector] public float p_waveMoney;
+    [HideInInspector] public float p_killMoney;
 
     private HealthController playerHealth;
 
@@ -32,6 +36,9 @@ public class PlayerMultiplayers : MonoBehaviour
         UIManager.Instance.DamageUpdate();
         UIManager.Instance.SpeedUpdate();
         UIManager.Instance.HPMultUpdate();
+        UIManager.Instance.HPRegenUpdate();
+        UIManager.Instance.WaveMoneyUpdate();
+        UIManager.Instance.KillMoneyUpdate();
     }
 
     private void SetDefaults()
@@ -40,12 +47,16 @@ public class PlayerMultiplayers : MonoBehaviour
         attackSpd = 1f;
         hpMult = 1;
         hpRegen = 1f;
+        waveMoney = 1;
+        killMoney = 1;
 
 
         p_damageMult = 5;
         p_attackSpd = 10;
         p_hpMult = 10;
         p_hpRegen = 5;
+        p_waveMoney = 5;
+        p_killMoney = 10;
     }
 
     public void DamageUpgrade()
@@ -86,7 +97,27 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_hpRegen);
 
-        hpRegen += hpRegen * 0.2f;
+        hpRegen += hpRegen * 0.1f;
         p_hpRegen += p_hpRegen * 0.3f;
+    }
+
+    public void WaveMoneyUpgrade()
+    {
+        if (MoneyManager.Instance.money < p_waveMoney) { return; }
+
+        MoneyManager.Instance.ChangeMoney(p_waveMoney);
+
+        waveMoney += waveMoney * 1.2f;
+        p_waveMoney += p_waveMoney * 1.2f;
+    }
+
+    public void KillMoneyUpgrade()
+    {
+        if (MoneyManager.Instance.money < p_killMoney) { return; }
+
+        MoneyManager.Instance.ChangeMoney(p_killMoney);
+
+        killMoney += killMoney * 0.4f;
+        p_killMoney += p_killMoney * 0.8f;
     }
 }

@@ -37,7 +37,7 @@ public class HealthController : MonoBehaviour
         }
         else
         {
-            MoneyManager.Instance.ChangeMoney(-GetComponent<EnemyController>().info.price);
+            MoneyManager.Instance.ChangeMoney(-PlayerMultiplayers.Instance.killMoney);
         }
 
         //TODO: death effects (Maybe time slowdown)
