@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
     public float maxHealth;
 
     private float health;
+
+    public UnityEvent onLose;
 
     private void Start()
     {
@@ -33,14 +36,15 @@ public class HealthController : MonoBehaviour
     {
         if (gameObject.tag == "Player")
         {
-            //TODO: Death menu, pause game
+            GameplayController.Instance.isPlaying = false;
+            onLose.Invoke();
         }
         else
         {
-            MoneyManager.Instance.ChangeMoney(-PlayerMultiplayers.Instance.killMoney);
+            MoneyManager.Instance.ChangeMoney(-(GetComponent<EnemyController>().info.price * PlayerMultiplayers.Instance.killMoney));
         }
 
-        //TODO: death effects (Maybe time slowdown)
+        //TODO: death effects
         Destroy(gameObject);
     }
 

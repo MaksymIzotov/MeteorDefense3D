@@ -75,4 +75,9 @@ public class WaveManager : MonoBehaviour
 
         StartCoroutine(WaveStart());
     }
+
+    public void UpdateLoseWave()
+    {
+        UIManager.Instance.LoseWaveUpdate(waveCounter);
+    }
 }
