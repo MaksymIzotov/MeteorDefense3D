@@ -61,7 +61,6 @@ public class PlayerShoot : MonoBehaviour
 
     IEnumerator Reload()
     {
-        Debug.Log(1 / (info.attackSpeed * PlayerMultiplayers.Instance.attackSpd));
         yield return new WaitForSeconds(1 / (info.attackSpeed * PlayerMultiplayers.Instance.attackSpd));
 
         isReadyToShoot = true;

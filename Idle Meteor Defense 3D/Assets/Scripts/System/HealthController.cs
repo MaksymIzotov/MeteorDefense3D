@@ -11,9 +11,19 @@ public class HealthController : MonoBehaviour
         SetData();
     }
 
+    private void Update()
+    {
+        if (gameObject.tag != "Player") { return; }
+
+        if (health < maxHealth)
+            health += PlayerMultiplayers.Instance.hpRegen * Time.deltaTime;
+
+        UIManager.Instance.UpdateHealth(health);
+    }
+
     public void TakeDamage(float damage)
     {
-        health = health - damage;
+        health = health - damage;        
 
         if (health <= 0)
             Die();

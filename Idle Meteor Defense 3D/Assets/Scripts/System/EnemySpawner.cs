@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void StartWave()
     {
-        Timer.Instance.StartTimer(delayMin, delayMax, true, Spawn);
+        Timer.Instance.StartTimer(delayMin / GameDifficultyManager.Instance.waveTimeMult, delayMax / GameDifficultyManager.Instance.waveTimeMult, true, Spawn);
     }
 
     public void StopWave()

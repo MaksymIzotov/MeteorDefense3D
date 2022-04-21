@@ -18,13 +18,20 @@ public class PlayerMultiplayers : MonoBehaviour
     [HideInInspector] public float p_hpMult;
     [HideInInspector] public float p_hpRegen;
 
+    private HealthController playerHealth;
+
 
     private void Start()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>();
+
         SetDefaults();
+
+        playerHealth.SetData(); //Set health data again after updating multipliers
 
         UIManager.Instance.DamageUpdate();
         UIManager.Instance.SpeedUpdate();
+        UIManager.Instance.HPMultUpdate();
     }
 
     private void SetDefaults()
@@ -32,7 +39,7 @@ public class PlayerMultiplayers : MonoBehaviour
         damageMult = 1;
         attackSpd = 1f;
         hpMult = 1;
-        hpRegen = 0.1f;
+        hpRegen = 1f;
 
 
         p_damageMult = 5;
@@ -69,6 +76,8 @@ public class PlayerMultiplayers : MonoBehaviour
 
         hpMult += hpMult * 0.1f;
         p_hpMult += p_hpMult * 0.3f;
+
+        playerHealth.maxHealth *= hpMult;
     }
 
     public void HpRegenUpgrade()
