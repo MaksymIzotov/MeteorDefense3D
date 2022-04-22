@@ -22,11 +22,17 @@ public class UIManager : MonoBehaviour
     public TMP_Text moneyText;
     public TMP_Text healthText;
     public TMP_Text loseWaveText;
+    public TMP_Text loseDiamondsText;
 
 
     public void LoseWaveUpdate(int wave)
     {
         loseWaveText.text = "Wave reached: " + wave;
+    }
+
+    public void LoseDiamondsTextUpdate(int amount)
+    {
+        loseDiamondsText.text = "Diamonds: " + amount;
     }
 
     public void WaveUpdate(int wave)

@@ -76,6 +76,14 @@ public class WaveManager : MonoBehaviour
         StartCoroutine(WaveStart());
     }
 
+    public void ReceiveReward()
+    {
+        int diamonds = PlayerPrefs.GetInt("Diamonds") + waveCounter; //Add mult from menu
+        PlayerPrefs.SetInt("Diamonds", diamonds);
+
+        UIManager.Instance.LoseDiamondsTextUpdate(diamonds);
+    }
+
     public void UpdateLoseWave()
     {
         UIManager.Instance.LoseWaveUpdate(waveCounter);
