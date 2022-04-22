@@ -27,4 +27,9 @@ public class GameplayController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void OpenMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }
