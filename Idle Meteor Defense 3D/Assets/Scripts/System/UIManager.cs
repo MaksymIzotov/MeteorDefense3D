@@ -30,9 +30,9 @@ public class UIManager : MonoBehaviour
         loseWaveText.text = "Wave reached: " + wave;
     }
 
-    public void LoseDiamondsTextUpdate(int amount)
+    public void LoseDiamondsTextUpdate(float amount)
     {
-        loseDiamondsText.text = "Diamonds: " + amount;
+        loseDiamondsText.text = "Diamonds: " + amount.ToString("F0");
     }
 
     public void WaveUpdate(int wave)
@@ -68,8 +68,8 @@ public class UIManager : MonoBehaviour
 
     public void HPMultUpdate()
     {
-        float hp = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthController>().maxHealth;
-        hpMultButton.transform.GetChild(0).GetComponent<TMP_Text>().text = "Max HP: " + (hp).ToString("F2");
+        float hp = PlayerMultiplayers.Instance.hpMult;
+        hpMultButton.transform.GetChild(0).GetComponent<TMP_Text>().text = "HP X: " + (hp).ToString("F2");
 
         PriceUpdate(hpMultButton.transform.GetChild(1).GetComponent<TMP_Text>(), PlayerMultiplayers.Instance.p_hpMult);
     }

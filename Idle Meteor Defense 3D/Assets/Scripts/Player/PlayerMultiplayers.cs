@@ -24,6 +24,8 @@ public class PlayerMultiplayers : MonoBehaviour
 
     private HealthController playerHealth;
 
+    [HideInInspector] public float diamondsMult;
+
 
     private void Start()
     {
@@ -41,14 +43,43 @@ public class PlayerMultiplayers : MonoBehaviour
         UIManager.Instance.KillMoneyUpdate();
     }
 
+    #region LoadData
     private void SetDefaults()
     {
-        damageMult = 1;
-        attackSpd = 1f;
-        hpMult = 1;
-        hpRegen = 1f;
-        waveMoney = 1;
-        killMoney = 1;
+        if (PlayerPrefs.HasKey("damageMult"))
+            damageMult = PlayerPrefs.GetFloat("damageMult");
+        else
+            damageMult = 1;
+
+        if (PlayerPrefs.HasKey("attackSpd"))
+            attackSpd = PlayerPrefs.GetFloat("attackSpd");
+        else
+            attackSpd = 1;
+
+        if (PlayerPrefs.HasKey("hpMult"))
+            hpMult = PlayerPrefs.GetFloat("hpMult");
+        else
+            hpMult = 1;
+
+        if (PlayerPrefs.HasKey("hpRegen"))
+            hpRegen = PlayerPrefs.GetFloat("hpRegen");
+        else
+            hpRegen = 1;
+
+        if (PlayerPrefs.HasKey("waveMoney"))
+            waveMoney = PlayerPrefs.GetFloat("waveMoney");
+        else
+            waveMoney = 1;
+
+        if (PlayerPrefs.HasKey("killMoney"))
+            killMoney = PlayerPrefs.GetFloat("killMoney");
+        else
+            killMoney = 1;
+
+        if (PlayerPrefs.HasKey("diamondsMult"))
+            diamondsMult = PlayerPrefs.GetFloat("diamondsMult");
+        else
+            diamondsMult = 1;
 
 
         p_damageMult = 5;
@@ -57,7 +88,10 @@ public class PlayerMultiplayers : MonoBehaviour
         p_hpRegen = 5;
         p_waveMoney = 5;
         p_killMoney = 10;
+
+        playerHealth.maxHealth *= hpMult;
     }
+    #endregion
 
     public void DamageUpgrade()
     {

@@ -78,8 +78,8 @@ public class WaveManager : MonoBehaviour
 
     public void ReceiveReward()
     {
-        int diamonds = PlayerPrefs.GetInt("Diamonds") + waveCounter; //Add mult from menu
-        PlayerPrefs.SetInt("Diamonds", diamonds);
+        float diamonds = PlayerPrefs.GetFloat("Diamonds") + (waveCounter * PlayerMultiplayers.Instance.diamondsMult); 
+        PlayerPrefs.SetFloat("Diamonds", diamonds);
 
         UIManager.Instance.LoseDiamondsTextUpdate(diamonds);
     }

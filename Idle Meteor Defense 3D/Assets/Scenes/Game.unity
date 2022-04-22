@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1b7c4dab2dca6ca498c4e3ba5bbc2624, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2968,7 +2968,7 @@ MonoBehaviour:
   moneyText: {fileID: 1779084665}
   healthText: {fileID: 1287175129}
   loseWaveText: {fileID: 997921158}
-  loseDiamondsText: {fileID: 0}
+  loseDiamondsText: {fileID: 1784613629}
 --- !u!114 &1041714188
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,17 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
-    int diamonds = 0;
+    #region Singleton Init
+    public static MainMenuManager Instance;
 
-    public TMP_Text diamondsText;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    #endregion
+
+    [HideInInspector] public float diamonds = 0;
 
     private void Start()
     {
         SetData();
-        SetUI();
+
+        MainMenuUIManager.Instance.UpdateMoney(diamonds);
     }
 
     private void Update()
@@ -28,20 +35,21 @@ public class MainMenuManager : MonoBehaviour
     private void SetData()
     {
         if (PlayerPrefs.HasKey("Diamonds"))
-            diamonds = PlayerPrefs.GetInt("Diamonds");
+            diamonds = PlayerPrefs.GetFloat("Diamonds");
         else
             diamonds = 0;
     }
 
-    private void SetUI()
-    {
-        diamondsText.text = "Diamonds: " + diamonds;
-    }
-
     public void StartGame()
     {
-        //TODO: Set multipliers
-
         SceneManager.LoadScene("Game");
+    }
+
+    public void ChangeMoney(float amount)
+    {
+        diamonds -= amount;
+        PlayerPrefs.SetFloat("Diamonds", diamonds);
+
+        MainMenuUIManager.Instance.UpdateMoney(diamonds);
     }
 }
