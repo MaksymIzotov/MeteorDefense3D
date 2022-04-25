@@ -19,6 +19,8 @@ public class WaveManager : MonoBehaviour
     private float timer = 0;
     private float fillAmount = 0;
 
+    private float diamonds;
+
     private void Start()
     {
         StartGame();
@@ -78,10 +80,16 @@ public class WaveManager : MonoBehaviour
 
     public void ReceiveReward()
     {
-        float diamonds = PlayerPrefs.GetFloat("Diamonds") + (waveCounter * PlayerMultiplayers.Instance.diamondsMult); 
-        PlayerPrefs.SetFloat("Diamonds", diamonds);
+        diamonds = waveCounter * PlayerMultiplayers.Instance.diamondsMult;
+        PlayerPrefs.SetFloat("Diamonds", PlayerPrefs.GetFloat("Diamonds") + diamonds);
 
         UIManager.Instance.LoseDiamondsTextUpdate(diamonds);
+    }
+
+    public void DoubleReward()
+    {
+        PlayerPrefs.SetFloat("Diamonds", PlayerPrefs.GetFloat("Diamonds") + diamonds);
+        UIManager.Instance.LoseDiamondsTextUpdate(diamonds*2);
     }
 
     public void UpdateLoseWave()
