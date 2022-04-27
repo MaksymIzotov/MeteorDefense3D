@@ -99,7 +99,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_damageMult);
 
-        damageMult += damageMult * 0.2f;
+        damageMult += damageMult * 0.1f;
         p_damageMult += p_damageMult * 0.3f;
     }
 
@@ -109,7 +109,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_attackSpd);
 
-        attackSpd += attackSpd * 0.05f;
+        attackSpd += attackSpd * 0.02f;
         p_attackSpd += p_attackSpd * 0.3f;
     }
 
@@ -131,7 +131,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_hpRegen);
 
-        hpRegen += hpRegen * 0.1f;
+        hpRegen += hpRegen * 0.07f;
         p_hpRegen += p_hpRegen * 0.3f;
     }
 
@@ -141,7 +141,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_waveMoney);
 
-        waveMoney += waveMoney * 1.2f;
+        waveMoney += waveMoney * 0.8f;
         p_waveMoney += p_waveMoney * 1.2f;
     }
 
@@ -151,7 +151,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_killMoney);
 
-        killMoney += killMoney * 0.4f;
+        killMoney += killMoney * 0.1f;
         p_killMoney += p_killMoney * 0.8f;
     }
 }

@@ -23,7 +23,15 @@ public class UIManager : MonoBehaviour
     public TMP_Text healthText;
     public TMP_Text loseWaveText;
     public TMP_Text loseDiamondsText;
+    public TMP_Text enemyHp;
+    public TMP_Text enemyDamage;
 
+
+    public void UpdateEnemyStats(float hp, float damage)
+    {
+        enemyHp.text = "HP: " + hp.ToString("F2");
+        enemyDamage.text = "Damage: " + damage.ToString("F2");
+    }
 
     public void LoseWaveUpdate(int wave)
     {

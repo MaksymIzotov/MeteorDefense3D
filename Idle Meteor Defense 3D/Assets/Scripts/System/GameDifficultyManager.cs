@@ -2,11 +2,14 @@ using UnityEngine;
 
 public class GameDifficultyManager : MonoBehaviour
 {
+    #region Singleton Init
     public static GameDifficultyManager Instance;
     private void Awake()
     {
         Instance = this;
     }
+
+    #endregion
 
     public float enemyHPMult;
     public float enemyDamageMult;

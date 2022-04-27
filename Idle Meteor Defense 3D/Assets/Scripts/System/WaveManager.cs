@@ -21,6 +21,8 @@ public class WaveManager : MonoBehaviour
 
     private float diamonds;
 
+    [SerializeField] private EnemyInfo info;
+
     private void Start()
     {
         StartGame();
@@ -74,6 +76,7 @@ public class WaveManager : MonoBehaviour
 
         waveCounter++;
         UIManager.Instance.WaveUpdate(waveCounter);
+        UIManager.Instance.UpdateEnemyStats(5 * GameDifficultyManager.Instance.enemyHPMult, info.damage * GameDifficultyManager.Instance.enemyDamageMult);
 
         StartCoroutine(WaveStart());
     }

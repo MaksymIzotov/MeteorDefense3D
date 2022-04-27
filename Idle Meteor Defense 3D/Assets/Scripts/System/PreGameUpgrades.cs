@@ -124,7 +124,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_damageMult);
 
-        damageMult += damageMult * 0.2f;
+        damageMult += damageMult * 0.1f;
         p_damageMult += p_damageMult * 0.5f;
 
         PlayerPrefs.SetFloat("damageMult", damageMult);
@@ -137,7 +137,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_attackSpd);
 
-        attackSpd += attackSpd * 0.05f;
+        attackSpd += attackSpd * 0.02f;
         p_attackSpd += p_attackSpd * 0.5f;
 
         PlayerPrefs.SetFloat("attackSpd", attackSpd);
@@ -163,7 +163,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_hpRegen);
 
-        hpRegen += hpRegen * 0.1f;
+        hpRegen += hpRegen * 0.07f;
         p_hpRegen += p_hpRegen * 0.5f;
     }
 
@@ -173,7 +173,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_waveMoney);
 
-        waveMoney += waveMoney * 1.2f;
+        waveMoney += waveMoney * 0.8f;
         p_waveMoney += p_waveMoney * 0.5f;
 
         PlayerPrefs.SetFloat("waveMoney", waveMoney);
@@ -186,7 +186,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_killMoney);
 
-        killMoney += killMoney * 0.4f;
+        killMoney += killMoney * 0.1f;
         p_killMoney += p_killMoney * 0.5f;
 
         PlayerPrefs.SetFloat("killMoney", killMoney);
@@ -199,8 +199,8 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_diamondsMult);
 
-        diamondsMult += diamondsMult * 0.2f;
-        p_diamondsMult += p_diamondsMult * 0.8f;
+        diamondsMult += diamondsMult * 0.1f;
+        p_diamondsMult += p_diamondsMult * 0.9f;
 
         PlayerPrefs.SetFloat("diamondsMult", diamondsMult);
         PlayerPrefs.SetFloat("p_diamondsMult", p_diamondsMult);
