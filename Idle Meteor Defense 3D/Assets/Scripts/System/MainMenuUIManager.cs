@@ -23,7 +23,13 @@ public class MainMenuUIManager : MonoBehaviour
     public GameObject diamondMultButton;
 
     public TMP_Text diamondsText;
+    public TMP_Text topWaveText;
 
+
+    public void UpdateTopWave(int wave)
+    {
+        topWaveText.text = "Highest wave: " + wave;
+    }
 
     public void UpdateMoney(float money)
     {

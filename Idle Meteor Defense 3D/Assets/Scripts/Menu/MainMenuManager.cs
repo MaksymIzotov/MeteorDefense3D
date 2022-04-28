@@ -19,6 +19,11 @@ public class MainMenuManager : MonoBehaviour
         SetData();
 
         MainMenuUIManager.Instance.UpdateMoney(diamonds);
+
+        if(PlayerPrefs.HasKey("TopWave"))
+            MainMenuUIManager.Instance.UpdateTopWave(PlayerPrefs.GetInt("TopWave"));
+        else
+            MainMenuUIManager.Instance.UpdateTopWave(0);
     }
 
     private void Update()

@@ -3,9 +3,10 @@ using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour
 {
-    public float maxHealth;
+    public HealthInfo info;
 
     private float health;
+    [HideInInspector] public float maxHealth;
 
     public UnityEvent onLose;
 
@@ -51,8 +52,8 @@ public class HealthController : MonoBehaviour
     public void SetData()
     {
         if (gameObject.tag == "Player")
-            health = maxHealth * PlayerMultiplayers.Instance.hpMult;
+            health = info.basicHealth * PlayerMultiplayers.Instance.hpMult;
         else
-            health = maxHealth * GameDifficultyManager.Instance.enemyHPMult;
+            health = info.basicHealth * GameDifficultyManager.Instance.enemyHPMult;
     }
 }

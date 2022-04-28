@@ -201,4 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ab05a94b313ba4bb867a4bdc78e515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 11400000, guid: baa3e2be58e0dba47956ceec4c64a999, type: 2}
   maxHealth: 5
+  onLose:
+    m_PersistentCalls:
+      m_Calls: []

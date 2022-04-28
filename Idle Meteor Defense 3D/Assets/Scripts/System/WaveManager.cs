@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour
     private float diamonds;
 
     [SerializeField] private EnemyInfo info;
+    [SerializeField] private HealthInfo HpInfo;
 
     private void Start()
     {
@@ -48,6 +49,8 @@ public class WaveManager : MonoBehaviour
     {
         waveCounter = 1;
         UIManager.Instance.WaveUpdate(waveCounter);
+        UIManager.Instance.UpdateEnemyStats(5 * GameDifficultyManager.Instance.enemyHPMult, info.damage * GameDifficultyManager.Instance.enemyDamageMult);
+
         StartCoroutine(WaveStart());
     }
 
@@ -76,7 +79,7 @@ public class WaveManager : MonoBehaviour
 
         waveCounter++;
         UIManager.Instance.WaveUpdate(waveCounter);
-        UIManager.Instance.UpdateEnemyStats(5 * GameDifficultyManager.Instance.enemyHPMult, info.damage * GameDifficultyManager.Instance.enemyDamageMult);
+        UIManager.Instance.UpdateEnemyStats(HpInfo.basicHealth * GameDifficultyManager.Instance.enemyHPMult, info.damage * GameDifficultyManager.Instance.enemyDamageMult);
 
         StartCoroutine(WaveStart());
     }
@@ -97,6 +100,7 @@ public class WaveManager : MonoBehaviour
 
     public void UpdateLoseWave()
     {
+        PlayerPrefs.SetInt("TopWave", waveCounter);
         UIManager.Instance.LoseWaveUpdate(waveCounter);
     }
 }

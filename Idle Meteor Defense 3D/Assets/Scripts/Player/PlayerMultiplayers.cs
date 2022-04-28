@@ -122,7 +122,7 @@ public class PlayerMultiplayers : MonoBehaviour
         hpMult += hpMult * 0.1f;
         p_hpMult += p_hpMult * 0.3f;
 
-        playerHealth.maxHealth *= hpMult;
+        playerHealth.maxHealth = hpMult * playerHealth.info.basicHealth;
     }
 
     public void HpRegenUpgrade()
