@@ -100,7 +100,7 @@ public class PlayerMultiplayers : MonoBehaviour
         MoneyManager.Instance.ChangeMoney(p_damageMult);
 
         damageMult += damageMult * 0.1f;
-        p_damageMult += p_damageMult * 0.3f;
+        p_damageMult += 5 + p_damageMult * 0.02f;
     }
 
     public void AttackSpeedUpgrade()
@@ -109,8 +109,8 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_attackSpd);
 
-        attackSpd += attackSpd * 0.02f;
-        p_attackSpd += p_attackSpd * 0.3f;
+        attackSpd += attackSpd * 0.08f;
+        p_attackSpd += 5 + p_attackSpd * 0.05f;
     }
 
     public void HpMultUpgrade()
@@ -120,7 +120,7 @@ public class PlayerMultiplayers : MonoBehaviour
         MoneyManager.Instance.ChangeMoney(p_hpMult);
 
         hpMult += hpMult * 0.1f;
-        p_hpMult += p_hpMult * 0.3f;
+        p_hpMult += 5+ p_hpMult * 0.05f;
 
         playerHealth.maxHealth = hpMult * playerHealth.info.basicHealth;
     }
@@ -132,7 +132,7 @@ public class PlayerMultiplayers : MonoBehaviour
         MoneyManager.Instance.ChangeMoney(p_hpRegen);
 
         hpRegen += hpRegen * 0.07f;
-        p_hpRegen += p_hpRegen * 0.3f;
+        p_hpRegen += 5 + p_hpRegen * 0.05f;
     }
 
     public void WaveMoneyUpgrade()
@@ -142,7 +142,7 @@ public class PlayerMultiplayers : MonoBehaviour
         MoneyManager.Instance.ChangeMoney(p_waveMoney);
 
         waveMoney += waveMoney * 0.8f;
-        p_waveMoney += p_waveMoney * 1.2f;
+        p_waveMoney += 5 + p_waveMoney * 0.2f;
     }
 
     public void KillMoneyUpgrade()
@@ -152,6 +152,6 @@ public class PlayerMultiplayers : MonoBehaviour
         MoneyManager.Instance.ChangeMoney(p_killMoney);
 
         killMoney += killMoney * 0.1f;
-        p_killMoney += p_killMoney * 0.8f;
+        p_killMoney += 5 + p_killMoney * 0.1f;
     }
 }

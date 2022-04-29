@@ -78,6 +78,10 @@ public class WaveManager : MonoBehaviour
         MoneyManager.Instance.ChangeMoney(-(moneyPerWave * PlayerMultiplayers.Instance.waveMoney));
 
         waveCounter++;
+
+        if (waveCounter % 10 == 0)
+            EnemySpawner.Instance.Spawn(2);
+
         UIManager.Instance.WaveUpdate(waveCounter);
         UIManager.Instance.UpdateEnemyStats(HpInfo.basicHealth * GameDifficultyManager.Instance.enemyHPMult, info.damage * GameDifficultyManager.Instance.enemyDamageMult);
 

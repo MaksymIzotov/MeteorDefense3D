@@ -4291,6 +4291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2389541403156269917, guid: dae2f9ae2d70bab43a68a60f75d68016, type: 3}
+  - {fileID: 800440288857868963, guid: 3e936126d9aa6654bb73b21240ea9b93, type: 3}
+  - {fileID: 7704262557726965127, guid: b273f1364b5e8e3469e550dad8da0e6b, type: 3}
   delayMin: 0.5
   delayMax: 2
   radius: 20
@@ -4378,7 +4380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  startingMoney: 100
+  startingMoney: 9999
 --- !u!114 &1337043836
 MonoBehaviour:
   m_ObjectHideFlags: 0
