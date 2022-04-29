@@ -109,7 +109,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ab05a94b313ba4bb867a4bdc78e515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  info: {fileID: 11400000, guid: 33e6501c08b3cd744b74b100bb665a8f, type: 2}
   maxHealth: 10
+  deathParticles: {fileID: 2013012454073196972, guid: b504ae4d9a080034fbf55e29ce3b6c92, type: 3}
+  onLose:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+        m_MethodName: OpenMenu
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: Menu, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+        m_MethodName: UpdateLoseWave
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: WaveManager, Assembly-CSharp
+        m_MethodName: ReceiveReward
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &667044607
 MonoBehaviour:
   m_ObjectHideFlags: 0

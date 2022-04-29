@@ -8,6 +8,8 @@ public class HealthController : MonoBehaviour
     private float health;
     [HideInInspector] public float maxHealth;
 
+    [SerializeField] private GameObject deathParticles;
+
     public UnityEvent onLose;
 
     private void Start()
@@ -45,7 +47,7 @@ public class HealthController : MonoBehaviour
             MoneyManager.Instance.ChangeMoney(-(GetComponent<EnemyController>().info.price * PlayerMultiplayers.Instance.killMoney));
         }
 
-        //TODO: death effects
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

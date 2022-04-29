@@ -172,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   info: {fileID: 11400000, guid: d08d083586efa30479dc07860495aca6, type: 2}
   maxHealth: 5
+  deathParticles: {fileID: 2013012454073196972, guid: b504ae4d9a080034fbf55e29ce3b6c92, type: 3}
   onLose:
     m_PersistentCalls:
       m_Calls: []
