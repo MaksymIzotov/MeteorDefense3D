@@ -141,7 +141,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_waveMoney);
 
-        waveMoney += waveMoney * 0.8f;
+        waveMoney += 5 + waveMoney * 0.1f;
         p_waveMoney += 5 + p_waveMoney * 0.2f;
     }
 

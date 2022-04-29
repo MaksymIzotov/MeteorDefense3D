@@ -173,7 +173,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_waveMoney);
 
-        waveMoney += waveMoney * 0.8f;
+        waveMoney += 5 + waveMoney * 0.1f;
         p_waveMoney += p_waveMoney * 0.5f;
 
         PlayerPrefs.SetFloat("waveMoney", waveMoney);
