@@ -10,10 +10,14 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] private LayerMask enemyLayer;
 
+    private PlayerAnimationController animationController;
+
     private void Start()
     {
         if (info == null)
             Debug.LogError("NO INFO SCRIPT ON PLAYER");
+
+        animationController = GetComponent<PlayerAnimationController>();
     }
 
     private void Update()
@@ -35,6 +39,8 @@ public class PlayerShoot : MonoBehaviour
         BulletController controller = bullet.GetComponent<BulletController>();
         controller.damage = info.damage * PlayerMultiplayers.Instance.damageMult;
         controller.target = target;
+
+        animationController.Shoot();
 
         StartCoroutine(Reload());
         isReadyToShoot = false;
