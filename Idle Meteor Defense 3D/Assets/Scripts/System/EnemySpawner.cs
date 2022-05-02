@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Instantiate(enemies[GetRandomEnemy(0, enemies.Length-1)], GetRandomPosition(), Quaternion.identity);
+        Instantiate(enemies[GetRandomEnemy()], GetRandomPosition(), Quaternion.identity);
     }
 
     public void Spawn(int index)
@@ -35,9 +35,14 @@ public class EnemySpawner : MonoBehaviour
         Instantiate(enemies[index], GetRandomPosition(), Quaternion.identity);
     }
 
-    private int GetRandomEnemy(int min, int max)
+    private int GetRandomEnemy()
     {
-        return Random.Range(min,max);
+        int rand = Random.Range(0,100);
+
+        if (rand < 80)
+            return 0;
+
+        return 1;
     }
 
     private Vector3 GetRandomPosition()

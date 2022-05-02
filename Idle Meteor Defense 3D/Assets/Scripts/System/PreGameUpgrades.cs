@@ -137,7 +137,7 @@ public class PreGameUpgrades : MonoBehaviour
 
         MainMenuManager.Instance.ChangeMoney(p_attackSpd);
 
-        attackSpd += attackSpd * 0.08f;
+        attackSpd += attackSpd * 0.06f;
         p_attackSpd += p_attackSpd * 0.5f;
 
         PlayerPrefs.SetFloat("attackSpd", attackSpd);

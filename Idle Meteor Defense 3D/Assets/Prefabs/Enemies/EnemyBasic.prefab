@@ -204,6 +204,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b52a8a8e12fa8ec439dcd5417ae9220c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4702b9b3dd502194ea6a0d9a6788a68f, type: 2}
     - target: {fileID: 919132149155446097, guid: b52a8a8e12fa8ec439dcd5417ae9220c, type: 3}
       propertyPath: m_Name
       value: meteor1

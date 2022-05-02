@@ -109,7 +109,7 @@ public class PlayerMultiplayers : MonoBehaviour
 
         MoneyManager.Instance.ChangeMoney(p_attackSpd);
 
-        attackSpd += attackSpd * 0.08f;
+        attackSpd += attackSpd * 0.06f;
         p_attackSpd += 5 + p_attackSpd * 0.05f;
     }
 
